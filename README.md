@@ -21,7 +21,11 @@ Render a single full-set view to `mandelbrot.png`:
 ./fractal-env/bin/python mandelbrot_numba.py
 ```
 
-Edit the `WIDTH`, `HEIGHT`, `MAX_ITER`, `CENTER_X`, `CENTER_Y`, `ZOOM` constants at the top of the script to change the view.
+All parameters are exposed as CLI args (`--width`, `--height`, `--max-iter`, `--center-x`, `--center-y`, `--zoom`, `--output`), e.g.:
+
+```
+./fractal-env/bin/python mandelbrot_numba.py --center-x -0.743643887037151 --center-y 0.13182590420533 --zoom 1e-8 --max-iter 2000
+```
 
 Benchmark render time across a grid of zoom levels and iteration counts:
 
@@ -29,11 +33,15 @@ Benchmark render time across a grid of zoom levels and iteration counts:
 ./fractal-env/bin/python benchmark.py
 ```
 
+Override the defaults with `--width`, `--height`, `--center-x`, `--center-y`, `--zoom-levels`, and `--iter-levels` (the latter two take comma-separated values).
+
 Render PNGs at a sequence of deep zoom levels to visually check for float64 precision breakdown:
 
 ```
 ./fractal-env/bin/python precision_check.py
 ```
+
+Takes the same `--width`, `--height`, `--max-iter`, `--center-x`, `--center-y`, and `--zoom-levels` (comma-separated) args.
 
 ## Linting
 

@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 - `mandelbrot_numba.py`, `benchmark.py`, and `precision_check.py` now import their kernel and coloring logic from `mandelbrot_lib.py` instead of each defining their own copy.
 - Extracted the Mandelbrot bailout radius (`4.0`) into a named `BAILOUT_RADIUS_SQ` constant in `mandelbrot_lib.py` to resolve a ruff `PLR2004` magic-value warning.
+- `mandelbrot_numba.py`, `benchmark.py`, and `precision_check.py` now accept CLI arguments (`--width`, `--height`, `--max-iter`, `--center-x`, `--center-y`, `--zoom`/`--zoom-levels`, `--iter-levels`, `--output`) instead of requiring the module-level constants to be edited directly; those constants remain as the CLI defaults.
 
 ## [0.1.1] - 2026-08-02
 
