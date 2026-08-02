@@ -1,6 +1,7 @@
 fractal-env/
 __pycache__/
 *.pyc
+.claude/
 
 # rendered output
 *.png
