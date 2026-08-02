@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - `requirements.txt` pinning `numpy`, `numba`, and `pillow` versions.
+- `.gitattributes` to normalize line endings to LF.
 
 ## [0.1.1] - 2026-08-02
 
