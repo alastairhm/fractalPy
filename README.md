@@ -10,7 +10,7 @@ A small, dependency-light Mandelbrot set renderer accelerated with [Numba](https
 
 ```
 python3 -m venv fractal-env
-./fractal-env/bin/pip install numpy numba pillow
+./fractal-env/bin/pip install -r requirements.txt
 ```
 
 ## Usage
@@ -33,6 +33,13 @@ Render PNGs at a sequence of deep zoom levels to visually check for float64 prec
 
 ```
 ./fractal-env/bin/python precision_check.py
+```
+
+## Linting
+
+```
+./fractal-env/bin/pip install -r requirements-dev.txt
+./fractal-env/bin/ruff check .
 ```
 
 ## Notes
