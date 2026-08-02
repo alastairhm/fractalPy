@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `LICENSE` (MIT) and a corresponding license badge in the README.
 - README screenshot of a rendered Mandelbrot set (`docs/screenshot.png`).
 
+### Changed
+- `.gitignore` now excludes `.claude/`.
+
 ## [0.1.0] - 2026-08-02
 
 ### Added
