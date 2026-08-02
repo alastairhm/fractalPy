@@ -1,0 +1,6 @@
+fractal-env/
+__pycache__/
+*.pyc
+
+# rendered output
+*.png
