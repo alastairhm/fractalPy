@@ -30,6 +30,8 @@ Run any script directly, e.g. `./fractal-env/bin/python mandelbrot_numba.py`. Th
 
 `./fractal-env/bin/ruff check .` — configured in `pyproject.toml` with `select = ["E", "F", "W", "I", "PL"]` (the `PL` set is ruff's pylint-equivalent rules). The two numba kernels in `mandelbrot_lib.py` have `# noqa: PLR0913, PLR0917` (too-many-arguments) since their 6-parameter signature is inherent to the jitted kernel and shouldn't be bundled into an object just to satisfy the linter.
 
+CI (`.github/workflows/ruff.yml`) runs `ruff check .` on every PR and on pushes to `master` — keep it green.
+
 ## Git workflow
 
 - Never push directly to `master`. Do all work on a feature branch and open a PR (`gh pr create`).
