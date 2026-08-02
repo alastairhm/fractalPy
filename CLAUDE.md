@@ -25,6 +25,11 @@ Dependencies (no requirements.txt — installed ad hoc): `numpy`, `numba`, `pill
 
 Run any script directly, e.g. `./fractal-env/bin/python mandelbrot_numba.py`. There is no test suite; validation is visual (inspect the output PNG).
 
+## Git workflow
+
+- Never push directly to `master`. Do all work on a feature branch and open a PR (`gh pr create`).
+- Every push must include an updated `CHANGELOG.md` entry describing the change.
+
 ## Architecture notes
 
 - The `mandelbrot(width, height, cx, cy, zoom, max_iter)` kernel is duplicated verbatim in all three scripts rather than shared via an import. If you change the escape-time algorithm (e.g. adjust the bailout radius, smoothing formula, or parallelization), update all three copies consistently unless the change is intentionally script-specific (e.g. `benchmark.py`'s kernel intentionally skips smoothing).
