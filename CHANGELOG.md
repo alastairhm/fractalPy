@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `mandelbrot_lib.py`: shared module with the `mandelbrot()`/`mandelbrot_raw()` escape-time kernels and `colorize()`.
 - `pyproject.toml` with ruff configured (`E`, `F`, `W`, `I`, and pylint-equivalent `PL` rule sets).
 - `requirements-dev.txt` pinning `ruff` for linting.
+- GitHub Actions workflow (`.github/workflows/ruff.yml`) running `ruff check .` on pull requests and pushes to `master`.
 
 ### Changed
 - `mandelbrot_numba.py`, `benchmark.py`, and `precision_check.py` now import their kernel and coloring logic from `mandelbrot_lib.py` instead of each defining their own copy.
