@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A small, dependency-light Mandelbrot set renderer accelerated with Numba. Not a package (no `setup.py`/`pyproject.toml`) — three standalone scripts plus a shared `mandelbrot_lib.py` module with the core kernel(s) and coloring.
+A small, dependency-light Mandelbrot set renderer accelerated with Numba. Not an installable package (`pyproject.toml` only holds ruff config, no build backend) — three standalone scripts plus a shared `mandelbrot_lib.py` module with the core kernel(s) and coloring.
 
 ## Environment
 
@@ -15,7 +15,7 @@ A virtualenv already exists at `fractal-env/` (Python 3.10.12). Use it directly 
 ./fractal-env/bin/pip install <pkg>
 ```
 
-Dependencies are pinned in `requirements.txt` (`numpy`, `numba`, `pillow`); install with `./fractal-env/bin/pip install -r requirements.txt`. `llvmlite` (0.48.0) comes in as a transitive dependency of `numba`.
+Dependencies are pinned in `requirements.txt` (`numpy`, `numba`, `pillow`); install with `./fractal-env/bin/pip install -r requirements.txt`. `llvmlite` (0.48.0) comes in as a transitive dependency of `numba`. `requirements-dev.txt` additionally pins `ruff` for linting.
 
 ## Scripts
 
@@ -25,6 +25,10 @@ Dependencies are pinned in `requirements.txt` (`numpy`, `numba`, `pillow`); inst
 - `precision_check.py` — renders PNGs at a sequence of deep zoom levels (down to 1e-14) to visually inspect for float64 precision breakdown (artifacting, broken symmetry, static-like noise). This is the point at which double precision runs out for Mandelbrot rendering — a known limit, not a bug to fix in `zr`/`zi` arithmetic.
 
 Run any script directly, e.g. `./fractal-env/bin/python mandelbrot_numba.py`. There is no test suite; validation is visual (inspect the output PNG).
+
+## Linting
+
+`./fractal-env/bin/ruff check .` — configured in `pyproject.toml` with `select = ["E", "F", "W", "I", "PL"]` (the `PL` set is ruff's pylint-equivalent rules). The two numba kernels in `mandelbrot_lib.py` have `# noqa: PLR0913, PLR0917` (too-many-arguments) since their 6-parameter signature is inherent to the jitted kernel and shouldn't be bundled into an object just to satisfy the linter.
 
 ## Git workflow
 

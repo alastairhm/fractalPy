@@ -10,9 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `requirements.txt` pinning `numpy`, `numba`, and `pillow` versions.
 - `.gitattributes` to normalize line endings to LF.
 - `mandelbrot_lib.py`: shared module with the `mandelbrot()`/`mandelbrot_raw()` escape-time kernels and `colorize()`.
+- `pyproject.toml` with ruff configured (`E`, `F`, `W`, `I`, and pylint-equivalent `PL` rule sets).
+- `requirements-dev.txt` pinning `ruff` for linting.
 
 ### Changed
 - `mandelbrot_numba.py`, `benchmark.py`, and `precision_check.py` now import their kernel and coloring logic from `mandelbrot_lib.py` instead of each defining their own copy.
+- Extracted the Mandelbrot bailout radius (`4.0`) into a named `BAILOUT_RADIUS_SQ` constant in `mandelbrot_lib.py` to resolve a ruff `PLR2004` magic-value warning.
 
 ## [0.1.1] - 2026-08-02
 

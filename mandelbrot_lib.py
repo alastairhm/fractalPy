@@ -6,9 +6,11 @@ precision_check.py, and benchmark.py.
 import numpy as np
 from numba import njit, prange
 
+BAILOUT_RADIUS_SQ = 4.0  # bailout radius of 2.0, compared against |z|^2
+
 
 @njit(parallel=True, fastmath=True, cache=True)
-def mandelbrot(width, height, cx, cy, zoom, max_iter):
+def mandelbrot(width, height, cx, cy, zoom, max_iter):  # noqa: PLR0913, PLR0917
     aspect = width / height
     x_min, x_max = cx - zoom * aspect, cx + zoom * aspect
     y_min, y_max = cy - zoom, cy + zoom
@@ -22,7 +24,7 @@ def mandelbrot(width, height, cx, cy, zoom, max_iter):
 
             zr, zi = 0.0, 0.0
             i = 0
-            while zr * zr + zi * zi <= 4.0 and i < max_iter:
+            while zr * zr + zi * zi <= BAILOUT_RADIUS_SQ and i < max_iter:
                 zr, zi = zr * zr - zi * zi + x, 2.0 * zr * zi + y
                 i += 1
 
@@ -38,7 +40,7 @@ def mandelbrot(width, height, cx, cy, zoom, max_iter):
 
 
 @njit(parallel=True, fastmath=True, cache=True)
-def mandelbrot_raw(width, height, cx, cy, zoom, max_iter):
+def mandelbrot_raw(width, height, cx, cy, zoom, max_iter):  # noqa: PLR0913, PLR0917
     """Unsmoothed escape-time kernel, for measuring raw kernel speed."""
     aspect = width / height
     x_min, x_max = cx - zoom * aspect, cx + zoom * aspect
@@ -53,7 +55,7 @@ def mandelbrot_raw(width, height, cx, cy, zoom, max_iter):
 
             zr, zi = 0.0, 0.0
             i = 0
-            while zr * zr + zi * zi <= 4.0 and i < max_iter:
+            while zr * zr + zi * zi <= BAILOUT_RADIUS_SQ and i < max_iter:
                 zr, zi = zr * zr - zi * zi + x, 2.0 * zr * zi + y
                 i += 1
 

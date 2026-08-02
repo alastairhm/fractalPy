@@ -35,6 +35,13 @@ Render PNGs at a sequence of deep zoom levels to visually check for float64 prec
 ./fractal-env/bin/python precision_check.py
 ```
 
+## Linting
+
+```
+./fractal-env/bin/pip install -r requirements-dev.txt
+./fractal-env/bin/ruff check .
+```
+
 ## Notes
 
 - The Mandelbrot kernel is JIT-compiled with `@njit(parallel=True, fastmath=True, cache=True)`; compiled code is cached under `__pycache__/`.

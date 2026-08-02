@@ -7,7 +7,7 @@ pip install numba numpy pillow
 
 from PIL import Image
 
-from mandelbrot_lib import mandelbrot, colorize
+from mandelbrot_lib import colorize, mandelbrot
 
 WIDTH, HEIGHT = 1920, 1080
 MAX_ITER = 2000
