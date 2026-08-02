@@ -20,11 +20,11 @@ Dependencies are pinned in `requirements.txt` (`numpy`, `numba`, `pillow`); inst
 ## Scripts
 
 - `mandelbrot_lib.py` — shared library: `mandelbrot()` (smoothed kernel) and `mandelbrot_raw()` (unsmoothed, for benchmarking) escape-time kernels, plus `colorize()`. All three scripts below import from here rather than defining their own copies.
-- `mandelbrot_numba.py` — renders a single full-set view to `mandelbrot.png`. Edit `WIDTH`, `HEIGHT`, `MAX_ITER`, `CENTER_X`, `CENTER_Y`, `ZOOM` constants at the top to change the view.
-- `benchmark.py` — times the render across a grid of zoom levels (`ZOOM_LEVELS`) and iteration counts (`ITER_LEVELS`), printing a table. Uses `mandelbrot_raw` (non-smoothed escape count, no log/coloring overhead) since it's measuring raw kernel speed.
-- `precision_check.py` — renders PNGs at a sequence of deep zoom levels (down to 1e-14) to visually inspect for float64 precision breakdown (artifacting, broken symmetry, static-like noise). This is the point at which double precision runs out for Mandelbrot rendering — a known limit, not a bug to fix in `zr`/`zi` arithmetic.
+- `mandelbrot_numba.py` — renders a single full-set view to `mandelbrot.png`. `WIDTH`, `HEIGHT`, `MAX_ITER`, `CENTER_X`, `CENTER_Y`, `ZOOM` at the top are the CLI arg defaults (`--width`, `--height`, `--max-iter`, `--center-x`, `--center-y`, `--zoom`, `--output`).
+- `benchmark.py` — times the render across a grid of zoom levels (`ZOOM_LEVELS`) and iteration counts (`ITER_LEVELS`), printing a table. Uses `mandelbrot_raw` (non-smoothed escape count, no log/coloring overhead) since it's measuring raw kernel speed. `--zoom-levels`/`--iter-levels` take comma-separated values.
+- `precision_check.py` — renders PNGs at a sequence of deep zoom levels (down to 1e-14) to visually inspect for float64 precision breakdown (artifacting, broken symmetry, static-like noise). This is the point at which double precision runs out for Mandelbrot rendering — a known limit, not a bug to fix in `zr`/`zi` arithmetic. `--zoom-levels` takes comma-separated values.
 
-Run any script directly, e.g. `./fractal-env/bin/python mandelbrot_numba.py`. There is no test suite; validation is visual (inspect the output PNG).
+All three scripts take CLI args (see `--help`) whose defaults are the module-level constants at the top of each file — edit those constants to change the defaults, or pass args to override per-run. Run any script directly, e.g. `./fractal-env/bin/python mandelbrot_numba.py`. There is no test suite; validation is visual (inspect the output PNG).
 
 ## Linting
 
