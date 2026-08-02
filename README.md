@@ -1,5 +1,7 @@
 # fractalPy
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A small, dependency-light Mandelbrot set renderer accelerated with [Numba](https://numba.pydata.org/).
 
 ## Setup
