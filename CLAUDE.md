@@ -15,7 +15,7 @@ A virtualenv already exists at `fractal-env/` (Python 3.10.12). Use it directly 
 ./fractal-env/bin/pip install <pkg>
 ```
 
-Dependencies (no requirements.txt — installed ad hoc): `numpy`, `numba`, `pillow`. Installed versions: numpy 2.2.6, numba 0.66.0, llvmlite 0.48.0, pillow 12.3.0.
+Dependencies are pinned in `requirements.txt` (`numpy`, `numba`, `pillow`); install with `./fractal-env/bin/pip install -r requirements.txt`. `llvmlite` (0.48.0) comes in as a transitive dependency of `numba`.
 
 ## Scripts
 
