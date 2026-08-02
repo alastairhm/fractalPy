@@ -4,6 +4,8 @@
 
 A small, dependency-light Mandelbrot set renderer accelerated with [Numba](https://numba.pydata.org/).
 
+![Mandelbrot set render](docs/screenshot.png)
+
 ## Setup
 
 ```
