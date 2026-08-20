@@ -54,3 +54,7 @@ Takes the same `--width`, `--height`, `--max-iter`, `--center-x`, `--center-y`, 
 
 - The Mandelbrot kernel is JIT-compiled with `@njit(parallel=True, fastmath=True, cache=True)`; compiled code is cached under `__pycache__/`.
 - Double-precision (float64) arithmetic limits how deep you can zoom before artifacting appears — see the output of `precision_check.py`.
+
+## On the blog
+
+* https://blog.0x32.co.uk/posts/fractalpy/
