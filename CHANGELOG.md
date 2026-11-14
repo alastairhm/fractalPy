@@ -6,9 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-### Security
-- Bumped `pillow` from 12.3.0 to 13.0.0, fixing 43 Dependabot advisories (5 critical, 24 high), including heap buffer overflows in JPEG, FlashPix and TIFF handling and a Ghostscript argument injection.
-
 ### Added
 - README "See also" section linking the [fractals](https://github.com/alastairhm/fractals) repo.
 - `requirements.txt` pinning `numpy`, `numba`, and `pillow` versions.
