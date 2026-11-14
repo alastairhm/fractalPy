@@ -58,3 +58,7 @@ Takes the same `--width`, `--height`, `--max-iter`, `--center-x`, `--center-y`, 
 ## On the blog
 
 * https://blog.0x32.co.uk/posts/fractalpy/
+
+## See also
+
+* [fractals](https://github.com/alastairhm/fractals): more Mandelbrot renderers, in Free Pascal for the terminal, plus Python scripts for a retro-styled deep-zoom video and other fractals.
