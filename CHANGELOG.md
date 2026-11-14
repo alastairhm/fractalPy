@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- README "See also" section linking the [fractals](https://github.com/alastairhm/fractals) repo.
 - `requirements.txt` pinning `numpy`, `numba`, and `pillow` versions.
 - `.gitattributes` to normalize line endings to LF.
 - `mandelbrot_lib.py`: shared module with the `mandelbrot()`/`mandelbrot_raw()` escape-time kernels and `colorize()`.
