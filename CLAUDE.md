@@ -8,7 +8,7 @@ A small, dependency-light Mandelbrot set renderer accelerated with Numba. Not an
 
 ## Environment
 
-A virtualenv already exists at `fractal-env/` (Python 3.10.12). Use it directly rather than creating a new one:
+A virtualenv already exists at `fractal-env/` (Python 3.12; Pillow 13 requires 3.11+). Use it directly rather than creating a new one:
 
 ```
 ./fractal-env/bin/python <script>.py

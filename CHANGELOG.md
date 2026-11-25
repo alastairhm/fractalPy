@@ -20,6 +20,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Extracted the Mandelbrot bailout radius (`4.0`) into a named `BAILOUT_RADIUS_SQ` constant in `mandelbrot_lib.py` to resolve a ruff `PLR2004` magic-value warning.
 - `mandelbrot_numba.py`, `benchmark.py`, and `precision_check.py` now accept CLI arguments (`--width`, `--height`, `--max-iter`, `--center-x`, `--center-y`, `--zoom`/`--zoom-levels`, `--iter-levels`, `--output`) instead of requiring the module-level constants to be edited directly; those constants remain as the CLI defaults.
 
+### Security
+- Bumped `pillow` from 12.3.0 to 13.0.0 to fix 43 published advisories (Dependabot). CI and the documented virtualenv move from Python 3.10 to 3.12, since Pillow 13 requires Python 3.11+.
+
 ## [0.1.1] - 2026-08-02
 
 ### Added
